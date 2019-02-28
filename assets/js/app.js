@@ -1,5 +1,8 @@
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Checkout from './checkout-app/Checkout/checkout';
 import 'babel-polyfill';
 import $ from 'jquery';
 import 'jquery-migrate';
@@ -93,4 +96,11 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
             });
         },
     };
+};
+
+window.initReact = function initReact() {
+    ReactDOM.render(
+        React.createElement(Checkout, null, null),
+        document.getElementById('checkout-app')
+    );
 };

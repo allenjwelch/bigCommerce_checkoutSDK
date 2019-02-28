@@ -28,9 +28,17 @@
     </div>
 </header>
 
-{{{ checkout.checkout_content }}}
+<div id="checkout-app"></div>
 
 {{{ footer.scripts }}}
+
+<script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+
+<script type="text/javascript" defer>
+    // Exported in app.js
+    window.initReact();
+</script>
+
 
 {{/partial}}
 

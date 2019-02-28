@@ -37,6 +37,30 @@ module.exports = {
                 test: /jquery-migrate/,
                 use: 'imports-loader?define=>false',
             },
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['react'],
+                    },
+                }
+            },
+
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    },
+                    'sass-loader'
+                ],
+            },
         ],
     },
     output: {
@@ -66,5 +90,7 @@ module.exports = {
             'svg-injector': path.resolve(__dirname, 'node_modules/svg-injector/dist/svg-injector.min.js'),
             sweetalert2: path.resolve(__dirname, 'node_modules/sweetalert2/dist/sweetalert2.min.js'),
         },
+        extensions: ['.js', '.jsx'],
+
     },
 };
